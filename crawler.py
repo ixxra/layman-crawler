@@ -44,8 +44,8 @@ def crawl(root, links, depth=3):
 
 
 if __name__ == '__main__':
+    links = {}
     if len(argv) == 1:
-        links = {}
         try:
             print (crawl(DOMAIN, links))
         except:
@@ -54,4 +54,9 @@ if __name__ == '__main__':
         
     else:
         for url in argv[1:]:
-            print ('\n'.join(links_from_site(url)))
+            try:
+                print (crawl(url, links))
+            except:
+                print (links)
+                print ('owwwww... dying')
+
