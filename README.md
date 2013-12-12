@@ -9,6 +9,6 @@ This crawler is meant to be an utility which aims to help implement the **pagera
 the file **network_topology.txt** represents a subset for [www.matematicas.uady.mx](http://www.matematicas.uady.mx) topology in a format suitable to analyze with numpy. The format for the file is
 
 * First line: A space separated list of urls.
-* Next lines: a square matrix representing the network connectivity.
+* Next lines: A square matrix representing the network connectivity.
 
-Each row is a space separated list of `0` and `1` representing `true` of `false` according to wether site `j` contains a link to site `i`. If such a link exists, it is assumed that in the matrix it is represented by the entry `(i, j)`.
+Each row is a space separated list of `1` and `0` representing `true` or `false` according to wether site `j` contains a link to site `i`. If such a link exists, it is assumed that it is represented by entry `(i, j)` in the matrix.
