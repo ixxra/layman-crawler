@@ -28,7 +28,7 @@ def links_from_site(domain):
 
 
 def crawl(root, links, depth=3):
-    if depth <= 0:
+    if depth < 0:
         return links
     
     for l in links_from_site(root):
@@ -37,9 +37,7 @@ def crawl(root, links, depth=3):
             links[l] += 1
         except:
             links[l] = 1
-        
-        d = depth - 1
-        crawl(l, links, depth=d)
+            crawl(l, links, depth - 1)
     
 
 
@@ -47,16 +45,16 @@ if __name__ == '__main__':
     links = {}
     if len(argv) == 1:
         try:
-            print (crawl(DOMAIN, links))
+            crawl(DOMAIN, links)
         except:
-            print (links)
             print ('owwwww... dying')
         
     else:
         for url in argv[1:]:
             try:
-                print (crawl(url, links))
+                crawl(url, links)
             except:
-                print (links)
                 print ('owwwww... dying')
 
+
+    print (links)
